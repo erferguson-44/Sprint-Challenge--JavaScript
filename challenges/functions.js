@@ -32,11 +32,12 @@ function multiply(a, b) {
 console.log(consume(10, 16, multiply))
 // ^FUNCTION -- MULTIPLY ^ //
 
+// FUNCTION -- GREETING //
 function greeting(firstName, lastName) {
   return `Hello ${firstName} ${lastName}, nice to meet you!`;
 }
 console.log(consume("Jake", "Blues", greeting))
-// ^FUNCTION -- MULTIPLY ^ //
+// ^FUNCTION -- GREETING ^ //
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
 console.log(consume(2, 2, add)); // 4
@@ -49,7 +50,9 @@ console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice t
 // Explain in your own words why nestedfunction can access the variable internal.
 
 // Explanation: 
+// A "closure" provides access to an outer function's scope from an inner function. Closures are created every time a function is created.
 
+-- nestedfunction can access the variable internal because the closure provides access to the outer function (in this case, myFunction) scope from an inner function. 
 
 const external = "I'm outside the function";
 
