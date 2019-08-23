@@ -42,6 +42,7 @@ console.log(tyrannosaurus.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
+
 tyrannosaurus.roar = function(){
   return `${tyrannosaurus.name} says "RAWERSRARARWERSARARARRRR!"`;
 }
@@ -70,9 +71,7 @@ const graduates = [
 Once you have the new array created, sort the universities alphabetically and log the result. */
 const universities = [];
 
-graduates.forEach(function(name){
-  universities.push(name.university) 
-})
+graduates.forEach(name => universities.push(name.university));
 console.table(universities.sort());
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. This will be an array of strings.
@@ -83,9 +82,7 @@ The resulting contact information strings should have a space between the first 
 Log the result of your new array. */
 const contactInfo = [];
 
-graduates.map(function (contact) {
-  contactInfo.push(`${contact.first_name} : ${contact.email}`);
-});
+graduates.map(contact => contactInfo.push(`${contact.first_name} : ${contact.email}`));
 
 console.table(contactInfo);
 
@@ -119,11 +116,19 @@ const zooAnimals = [
 The zoos want to display both the scientific name and the animal name in front of the habitats. Populate the displayNames array with only the animal_name and scientific_name of each animal. displayNames will be an array of strings, and each string should follow this pattern: "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
+// --- STANDARD --- // 
+// const displayNames = [];
+
+// zooAnimals.forEach(prisonName => {
+//   displayNames.push(`Name: ${prisonName.animal_name}, Scientific: ${prisonName.scientific_name}`);
+// });
+
+// console.table(displayNames);
+
+// --> ARROW FUNCTIONS <-- //
 const displayNames = [];
 
-zooAnimals.forEach(prisonName => {
-  displayNames.push(`Name: ${prisonName.animal_name}, Scientific: ${prisonName.scientific_name}`);
-});
+zooAnimals.forEach(prisonName => displayNames.push(`Name: ${prisonName.animal_name}, Scientific: ${prisonName.scientific_name}`));
 
 console.table(displayNames);
 
@@ -132,42 +137,54 @@ console.table(displayNames);
 The zoos need a list of all their animal's names (animal_name only) converted to lower case. Using map, create a new array of strings named lowCaseAnimalNames, each string following this pattern: "jackal, asiatic". Log the resut.
 
 */
+// --- STANDARD --- // 
+// const lowCaseAnimalNames = [];
+
+// zooAnimals.map(function(casing){
+//   lowCaseAnimalNames.push(`${casing.animal_name.toLowerCase()}`);
+// });
+
+// console.table(lowCaseAnimalNames);
+
+// --> ARROW FUNCTIONS <-- //
 const lowCaseAnimalNames = [];
 
-zooAnimals.map(function(casing){
-  lowCaseAnimalNames.push(`${casing.animal_name.toLowerCase()}`);
-});
+zooAnimals.map(casing => lowCaseAnimalNames.push(`${casing.animal_name.toLowerCase()}`));
 
 console.table(lowCaseAnimalNames);
-
 /* Request 3: .filter() 
 
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals = zooAnimals.filter(function(animal){
-  return animal.population < 5;
-})
-console.table(lowPopulationAnimals);
+// --- STANDARD --- // 
+// const lowPopulationAnimals = zooAnimals.filter(function(animal){
+//   return animal.population < 5;
+// })
+// console.table(lowPopulationAnimals);
 
+// --> ARROW FUNCTIONS <-- //
+const lowPopulationAnimals = zooAnimals.filter(animal => animal.population < 5);
+console.table(lowPopulationAnimals);
 
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = zooAnimals.reduce(function(theReducer, parm){
-    return theReducer += parm.population
-}, 0);
-
-console.log(populationTotal);
-
-// const populationTotal = zooAnimals.reduce((theReducer, parm) => {
-//   return theReducer += parm.population
+// --- STANDARD --- // 
+// const populationTotal = zooAnimals.reduce(function(theReducer, parm){
+//     return theReducer += parm.population
 // }, 0);
 
 // console.log(populationTotal);
 
+// --> ARROW FUNCTIONS <-- //
+const populationTotal = zooAnimals.reduce((theReducer, parm) => {
+return theReducer += parm.population
+}, 0);
+
+console.log(populationTotal);
 
 /*
 
